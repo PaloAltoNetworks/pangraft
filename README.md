@@ -1,5 +1,4 @@
-100Sample branch network onboarding automation
-===
+# pangraft
 
 The scripts contained in this repo are for demonstrating the use of Palo Alto Networks Cloud Management API for automated onboarding of third-party SD-WAN branch networks.  They utilize the lightweight Cloud Management API SDK located at https://github.com/PaloAltoNetworks/panapi.
 
@@ -107,3 +106,10 @@ $ bash onboard.sh
 ```
 
 The phase1 and phase2 scripts will output the following configuration details which may be used in the branch SD-WAN configuration.
+
+- Remote network name
+- IKE pre-shared key (PSK)
+- Local ID (primary tunnel)
+- Local ID (secondary tunnel)
+- BGP peer autonomous system (AS)
+- Tunnel terimination IP address
