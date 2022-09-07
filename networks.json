@@ -1,0 +1,47 @@
+[
+    {
+        "name": "London",
+        "latitude": 51.507351,
+        "longitude": -0.127758,
+        "bandwidth": 50,
+        "subnets": ["10.2.2.0/24"],
+        "redundancy": false,
+        "bgp": true
+    },
+    {
+        "name": "Tokyo",
+        "latitude": 35.689487,
+        "longitude": 139.691711,
+        "bandwidth": 50,
+        "subnets": ["10.6.2.0/24"],
+        "redundancy": true,
+        "bgp": false
+    },
+    {
+        "name": "Sao Paulo",
+        "latitude": -23.550520,
+        "longitude": -46.633308,
+        "bandwidth": 50,
+        "subnets": ["10.3.2.0/24"],
+        "redundancy": true,
+        "bgp": true
+    },
+    {
+        "name": "Frankfurt",
+        "latitude": 50.110880,
+        "longitude": 8.679490,
+        "bandwidth": 50,
+        "subnets": ["10.4.2.0/24"],
+        "redundancy": false,
+        "bgp": false
+    },
+    {
+        "name": "Sydney",
+        "latitude": -33.868820,
+        "longitude": 151.209290,
+        "bandwidth": 50,
+        "subnets": ["10.5.2.0/24"],
+        "redundancy": false,
+        "bgp": false
+    }
+]
