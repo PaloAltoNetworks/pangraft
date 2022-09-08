@@ -26,17 +26,8 @@ scope: tsg_id:1018675309
 ---
 ## Usage
 
-First, you will need to download and install the `panapi` SDK.  It is recommended you create a virtual environment for this.
-
-Create a workspace directory.
+Download the `pangraft` repository.
 ```bash
-$ mkdir workspace
-$ cd workspace
-```
-
-Download the `panapi` and `pangraft` repositories.
-```bash
-$ git clone https://github.com/PaloAltoNetworks/panapi.git
 $ git clone https://github.com/PaloAltoNetworks/pangraft.git
 ```
 
@@ -47,14 +38,14 @@ $ python3 -m venv .venv
 $ source .venv/bin/activate
 ```
 
-Upgrade pip.  This is important as earlier versions of pip will not properly install the `cryptography` package.
+Upgrade pip.  NOTE: This is important as earlier versions of pip will not properly install the `PyJWT` package dependencies.
 ```bash
 $ pip install --upgrade pip
 ```
 
 Install `panapi` and the rest of the required packages.
 ```bash
-$ pip install ../panapi
+$ pip install panapi
 $ pip install -r requirements.txt
 ```
 
