@@ -7,7 +7,7 @@
         "subnets": ["10.2.2.0/24"],
         "redundancy": false,
         "bgp": true,
-        "platform": "velocloud"
+        "platform": "paloalto"
     },
     {
         "name": "Tokyo",
@@ -27,7 +27,7 @@
         "subnets": ["10.3.2.0/24"],
         "redundancy": true,
         "bgp": true,
-        "platform": "velocloud"
+        "platform": "ciscoisr"
     },
     {
         "name": "Frankfurt",
@@ -37,7 +37,7 @@
         "subnets": ["10.4.2.0/24"],
         "redundancy": false,
         "bgp": false,
-        "platform": "velocloud"
+        "platform": "silverpeak"
     },
     {
         "name": "Sydney",
@@ -47,6 +47,6 @@
         "subnets": ["10.5.2.0/24"],
         "redundancy": false,
         "bgp": false,
-        "platform": "velocloud"
+        "platform": "viptela"
     }
 ]
