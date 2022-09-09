@@ -208,8 +208,6 @@ def main():
     #
     # Update the results with the service IPs for the remote networks we've provisioned
     #
-    print(json.dumps(remote_network_json, indent=4))
-    print(json.dumps(addresses, indent=4))
     for s in remote_networks:
         remote_network_json[s['name']]['peer_ip'] = addresses.get(s['name'])
     #

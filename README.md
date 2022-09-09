@@ -4,6 +4,8 @@ The scripts contained in this repo are for demonstrating the use of Palo Alto Ne
 
 This is intended to serve as a proof-of-concept rather than a supported tool for branch network orchestration.
 
+###
+
 --- 
 ## Dependencies
 - panapi
@@ -13,7 +15,7 @@ This is intended to serve as a proof-of-concept rather than a supported tool for
 ---
 ## Authentication
 
-The OAuth2.0 session handler that is included in the `panapi` SDK can be instantiated with the `client_id`, `client_secret`, `scope`, and `token_url` attribute values.  However, this script assumes that you've written your credentials to the `$HOME/.panapi/config.yml` file as follows:
+The OAuth2.0 session handler that is included in the `panapi` SDK can optionally be instantiated with the `client_id`, `client_secret`, `scope`, and `token_url` attribute values.  However, this script assumes that you've written your credentials to the `$HOME/.panapi/config.yml` file as follows:
 
 ```yaml
 # my lab tenant
