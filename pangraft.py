@@ -175,7 +175,7 @@ def main():
         if 'ufqdn2' in locals():
             remote_network_json[remote_network_name]['secondary_local_id'] = ufqdn2
         if 'tenant_bgp_asn' in locals():
-            remote_network_json[remote_network_name]['peer_asn'] = bgp_asn
+            remote_network_json[remote_network_name]['peer_asn'] = tenant_bgp_asn
     #
     # Push the configuration and wait for the job to complete
     #
