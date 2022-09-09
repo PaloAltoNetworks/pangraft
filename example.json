@@ -6,7 +6,8 @@
         "bandwidth": 50,
         "subnets": ["10.2.2.0/24"],
         "redundancy": false,
-        "bgp": true
+        "bgp": true,
+        "platform": "velocloud"
     },
     {
         "name": "Tokyo",
@@ -15,7 +16,8 @@
         "bandwidth": 50,
         "subnets": ["10.6.2.0/24"],
         "redundancy": true,
-        "bgp": false
+        "bgp": false,
+        "platform": "velocloud"
     },
     {
         "name": "Sao Paulo",
@@ -24,7 +26,8 @@
         "bandwidth": 50,
         "subnets": ["10.3.2.0/24"],
         "redundancy": true,
-        "bgp": true
+        "bgp": true,
+        "platform": "velocloud"
     },
     {
         "name": "Frankfurt",
@@ -33,7 +36,8 @@
         "bandwidth": 50,
         "subnets": ["10.4.2.0/24"],
         "redundancy": false,
-        "bgp": false
+        "bgp": false,
+        "platform": "velocloud"
     },
     {
         "name": "Sydney",
@@ -42,6 +46,7 @@
         "bandwidth": 50,
         "subnets": ["10.5.2.0/24"],
         "redundancy": false,
-        "bgp": false
+        "bgp": false,
+        "platform": "velocloud"
     }
 ]

@@ -24,32 +24,33 @@ scope: tsg_id:1018675309
 ```
 
 ---
-## Usage
+## Preparation
 
-Download the `pangraft` repository.
+1. Download the `pangraft` repository.
 ```bash
 $ git clone https://github.com/PaloAltoNetworks/pangraft.git
 ```
 
-Create a python virtual environment within the pangraft directory and activate it.
+2. Create a python virtual environment within the pangraft directory and activate it.
 ```bash
 $ cd pangraft
 $ python3 -m venv .venv
 $ source .venv/bin/activate
 ```
 
-Upgrade pip.  NOTE: This is important as earlier versions of pip will not properly install the `PyJWT` package dependencies.
+3. Upgrade pip.  
+**_NOTE:_** This is important as earlier versions of pip will not properly install the `PyJWT` package dependencies.
 ```bash
 $ pip install --upgrade pip
 ```
 
-Install `panapi` and the rest of the required packages.
+4. Install `panapi` and the rest of the required packages.
 ```bash
 $ pip install panapi
 $ pip install -r requirements.txt
 ```
 
-Edit the `networks.json` file and provide the relevant details for your branch networks.
+5. Edit the `networks.json` file and provide the relevant details for your branch networks.
 ```json
 [
     {
@@ -59,7 +60,8 @@ Edit the `networks.json` file and provide the relevant details for your branch n
         "bandwidth": 100,
         "subnets": ["10.2.2.0/24"],
         "redundancy": false,
-        "bgp": true
+        "bgp": true,
+        "platform": "silverpeak"
     },
     {
         "name": "Tokyo",
@@ -68,7 +70,8 @@ Edit the `networks.json` file and provide the relevant details for your branch n
         "bandwidth": 100,
         "subnets": ["10.6.2.0/24"],
         "redundancy": true,
-        "bgp": false
+        "bgp": false,
+        "platform": "velocloud"
     },
     {
         "name": "Sao Paulo",
@@ -77,30 +80,55 @@ Edit the `networks.json` file and provide the relevant details for your branch n
         "bandwidth": 50,
         "subnets": ["10.3.2.0/24"],
         "redundancy": true,
-        "bgp": true
+        "bgp": true,
+        "platform": "viptela"
     }
 ]
 ```
+### Platform Values
+The `platform` attribute is used to select the predefined IKE and IPSec crypto profiles for a given platform.  Valid values are as follows:
 
-Edit the following variables in `phase1.py` to suit your needs.
+| Value | Platform | 
+|-------|----------|
+| cloudgenix | Prisma SD-WAN |
+| paloalto | PAN-OS SD-WAN |
+| velocloud | VMWare VeloCloud |
+| silverpeak | Aruba Networks / Silver Peak |
+| viptela | Cisco Viptela | 
+| ciscoasa | Cisco ASA | 
+| ciscoisr | Cisco ISR | 
+| riverbed | Riverbed | 
+| other | Other |
+
+---
+## Usage
+
 ```bash
-FQDN = 'prismaaccess.com'
-BGP_ASN = '65432'
-IKE_PROFILE = "Velocloud-IKE-default"
-IPSEC_PROFILE = "Velocloud-IPSec-default"
-PEERNET = '172.16.0.0/12'
+$ python3 pangraft.py -h
+usage: pangraft.py [-h] [-b BGP_ASN] [-p PEER_NET] filename domainname
+
+Onboard a list of remote networks to Prisma SASE
+
+positional arguments:
+  filename              JSON file containing network details
+  domainname            DNS domain name
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -b BGP_ASN, --bgp_asn BGP_ASN
+                        The BGP autonomous system number (ASN)
+  -p PEER_NET, --peer_net PEER_NET
+                        IP netblock used for BGP peering loopback addresses
 ```
 
-Run the onboarding script.
-```bash
-$ bash onboard.sh
-```
+---
+## Output
 
-The phase1 and phase2 scripts will output the following configuration details which may be used in the branch SD-WAN configuration.
+The script will output the following configuration details which may be used in the branch SD-WAN configuration.
 
 - Remote network name
-- IKE pre-shared key (PSK)
-- Local ID (primary tunnel)
-- Local ID (secondary tunnel)
-- BGP peer autonomous system (AS)
-- Tunnel terimination IP address
+  - IKE pre-shared key (PSK)
+  - IKE Local ID (primary tunnel)
+  - IKE Local ID (secondary tunnel)
+  - BGP peer autonomous system (AS)
+  - Tunnel termination IP address
