@@ -170,10 +170,10 @@ def main():
         #
         remote_network_json[remote_network_name] = {
             "pre_shared_key": key,
-            "ufqdn": ufqdn
+            "primary_local_id": ufqdn
         }
         if 'ufqdn2' in locals():
-            remote_network_json[remote_network_name]['ufqdn2'] = ufqdn2
+            remote_network_json[remote_network_name]['secondary_local_id'] = ufqdn2
         if 'tenant_bgp_asn' in locals():
             remote_network_json[remote_network_name]['peer_asn'] = bgp_asn
     #
